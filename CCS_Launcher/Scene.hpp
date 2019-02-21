@@ -25,3 +25,44 @@ struct ShereData {
 };
 
 using SceneChanger = SceneManager<String, ShereData>;
+
+/// <summary>
+/// ゲーム起動中かどうかでウィンドウの状態を変更する。
+/// </summary>
+/// <param name="process">
+/// process != noneのときゲームが起動中としてランチャーを最小化
+/// process == none のときゲームが終了していると判断して最小化を解除する
+/// </param>
+/// <returns>
+/// プロセスが起動していれば false、起動していなければ true を返す
+/// </returns>
+bool CheckWindowState(Optional<ProcessInfo> process);
+
+/// <summary>
+/// シーン遷移クラス用基底クラス
+/// </summary>
+/// <remarks>
+/// 純粋仮想関数を含むので、インスタンス化不可
+/// </remarks>
+class BaseScene : public SceneChanger::Scene{
+
+public:
+
+	/// <summary>
+	/// デフォルトコンストラクタ
+	/// </summary>
+	BaseScene() = default;
+
+	/// <summary>
+	/// デストラクタ
+	/// </summary>
+	virtual ~BaseScene() = default;
+
+	/// <summary>
+	/// 画面情報更新&シーン遷移
+	/// </summary>
+	void update() override;
+
+	virtual void updateLauncher() = 0;
+
+};

@@ -5,7 +5,7 @@
 /// <summary>
 /// アプリケーション内容詳細＆起動画面
 /// </summary>
-class Detail : public SceneChanger::Scene {
+class Detail : public BaseScene {
 
 public:
 
@@ -17,7 +17,7 @@ public:
 	/// <summary>
 	/// 画面情報更新&シーン遷移
 	/// </summary>
-	void update() override;
+	void updateLauncher() override;
 
 	/// <summary>
 	/// 画面描画

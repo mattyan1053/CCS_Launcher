@@ -5,7 +5,7 @@
 /// <summary>
 /// アプリケーション選択画面
 /// </summary>
-class Select : public SceneChanger::Scene {
+class Select : public BaseScene {
 
 public:
 
@@ -14,10 +14,7 @@ public:
 	/// </summary>
 	Select();
 
-	/// <summary>
-	/// 画面情報更新&シーン遷移
-	/// </summary>
-	void update() override;
+	void updateLauncher() override;
 
 	/// <summary>
 	/// 画面描画
