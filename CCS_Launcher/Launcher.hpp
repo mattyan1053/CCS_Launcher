@@ -1,10 +1,10 @@
 # pragma once
 # include <Siv3D.hpp>
-# include <HamFramework.hpp>
+# include "Scene.hpp"
 # include "Defines.hpp"
 # include "InfoLoader.hpp"
-
-using SceneChanger = SceneManager<String, ShereData>;
+# include "Select.hpp"
+# include "Detail.hpp"
 
 /// <summary>
 /// ランチャー本体総括クラス

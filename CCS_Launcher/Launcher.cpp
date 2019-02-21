@@ -15,7 +15,9 @@ Launcher::Launcher(const FilePath& path) : m_infoLoader(path) {
 }
 
 void Launcher::start() {
+
 	while (System::Update()) {
 		m_manager.updateAndDraw();
 	}
+
 }

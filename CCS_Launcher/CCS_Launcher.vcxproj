@@ -162,10 +162,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Detail.cpp" />
     <ClCompile Include="InfoLoader.cpp" />
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
+    <ClCompile Include="Select.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -281,9 +283,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defines.hpp" />
+    <ClInclude Include="Detail.hpp" />
     <ClInclude Include="InfoLoader.hpp" />
     <ClInclude Include="Launcher.hpp" />
     <ClInclude Include="ResourceLoader.hpp" />
+    <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="Select.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

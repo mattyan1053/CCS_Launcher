@@ -9,13 +9,13 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 	for (const auto& file : fileList) {
 
 		// screenshotのロード
-		if (file.includes(L"screenshot")) {
+		if (file.includes(L"screenshot") || file.includes(L"Screenshot") || file.includes(L"ScreenShot")) {
 			appData.screenshot = Texture(file);
 			continue;
 		}
 
 		// 実行ファイル名、ジャンル、操作方法のロード
-		if (file.includes(L"info")) {
+		if (file.includes(L"info") || file.includes(L"Info")) {
 			TextReader reader(file);
 			reader.readLine(appData.executePath);
 			reader.readLine(appData.kind);
@@ -24,7 +24,7 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 		}
 
 		// readmeのロード
-		if (file.includes(L"readme") || file.includes(L"readMe") || file.includes(L"Readme") || file.includes(L"ReadMe")) {
+		if (file.includes(L"readme") || file.includes(L"readMe") || file.includes(L"Readme") || file.includes(L"ReadMe") || file.includes(L"README")) {
 			TextReader reader(file);
 			appData.readme = reader.readAll();
 			continue;

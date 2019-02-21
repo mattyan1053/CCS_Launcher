@@ -6,18 +6,6 @@
 /// </summary>
 class ResourceLoader {
 
-private:
-
-	/// <summary>
-	/// フォントのロード
-	/// </summary>
-	void loadFonts();
-
-	/// <summary>
-	/// 画像のロード
-	/// </summary>
-	void loadTextures();
-
 public:
 
 	/// <summary>
@@ -29,5 +17,15 @@ public:
 	/// データのロード。すべてAsset。
 	/// </summary>
 	void load();
+
+	/// <summary>
+	/// フォントのロード
+	/// </summary>
+	void loadFonts();
+
+	/// <summary>
+	/// 画像のロード
+	/// </summary>
+	void loadTextures();
 
 };
