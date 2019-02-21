@@ -12,6 +12,10 @@ void Detail::updateLauncher() {
 		changeScene(L"Select");
 	}
 
+	if (Input::MouseR.clicked) {
+		m_data->process = System::CreateProcess(m_data->apps[m_data->selectedID].appData.executePath);
+	}
+
 }
 
 void Detail::draw() const{

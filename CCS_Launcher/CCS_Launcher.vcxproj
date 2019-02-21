@@ -167,7 +167,7 @@
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
-    <ClCompile Include="SceneBasecpp.cpp" />
+    <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Select.cpp" />
   </ItemGroup>
   <ItemGroup>
