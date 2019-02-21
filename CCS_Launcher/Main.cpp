@@ -10,11 +10,9 @@ void Main()
 	ResourceLoader resourceLoader;
 	resourceLoader.load();
 
+	// ランチャーの生成
 	Launcher launcher(L"./Game");
 
-	while (System::Update())
-	{
-		launcher.update();
-		launcher.draw();
-	}
+	launcher.start();
+
 }

@@ -3,40 +3,19 @@
 # include "Launcher.hpp"
 
 Launcher::Launcher(const FilePath& path) : m_infoLoader(path) {
-	// ディレクトリの状態のロード
-	m_apps = m_infoLoader.Load();
 
-	for (int i = 0; i < m_apps.size(); i++) {
-		rects.emplace_back(i * 60, 60, 59);
-	}
+	// シーン遷移マネージャーセットアップ
+	m_manager.get()->apps = m_infoLoader.load();
+	m_manager.get()->process = none;
+	m_manager.get()->selectedID = 0U;
 
-}
-
-void Launcher::update() {
-
-	if (m_process) {
-		if (m_process->isRunning()) {
-			Window::Minimize();
-		}
-		else {
-			Window::Restore();
-			m_process = none;
-		}
-	}
-	else {
-		for (int i = 0; i < rects.size(); i++) {
-			if (rects[i].leftClicked) {
-				m_process = System::CreateProcess(m_apps[i].appData.executePath);
-			}
-		}
-	}
+	m_manager.add<Select>(L"Select");
+	m_manager.add<Detail>(L"Detail");
 
 }
 
-void Launcher::draw() const {
-
-	for (const auto& rect : rects) {
-		rect.draw();
+void Launcher::start() {
+	while (System::Update()) {
+		m_manager.updateAndDraw();
 	}
-
 }
