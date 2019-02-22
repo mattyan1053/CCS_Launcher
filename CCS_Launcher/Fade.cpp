@@ -26,7 +26,7 @@ void Fade(double t, bool in)
 
 void FadeIn(double t)
 {
-	Fade(1.0 - t, true);
+	Fade(1.0 - t, true); // フェードアウトの逆再生
 }
 
 void FadeOut(double t)
