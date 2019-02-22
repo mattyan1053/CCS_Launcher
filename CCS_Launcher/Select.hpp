@@ -3,6 +3,7 @@
 # include "Scene.hpp"
 # include "SelectItem.hpp"
 # include "Button.hpp"
+# include "Fade.hpp"
 
 /// <summary>
 /// アプリケーション選択画面
@@ -59,5 +60,21 @@ public:
 	/// 画面描画
 	/// </summary>
 	void draw() const override;
+
+	/// <summary>
+	/// フェードイン時の演出
+	/// </summary>
+	void drawFadeIn(double t) const override {
+		draw();
+		FadeIn(t);
+	}
+
+	/// <summary>
+	/// フェードアウト時の演出
+	/// </summary>
+	void drawFadeOut(double t) const override {
+		draw();
+		FadeOut(t);
+	}
 
 };

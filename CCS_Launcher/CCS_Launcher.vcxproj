@@ -164,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Detail.cpp" />
+    <ClCompile Include="Fade.cpp" />
     <ClCompile Include="InfoLoader.cpp" />
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -289,6 +290,7 @@
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Defines.hpp" />
     <ClInclude Include="Detail.hpp" />
+    <ClInclude Include="Fade.hpp" />
     <ClInclude Include="InfoLoader.hpp" />
     <ClInclude Include="InlineFrame.hpp" />
     <ClInclude Include="Launcher.hpp" />
