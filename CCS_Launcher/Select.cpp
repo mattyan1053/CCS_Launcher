@@ -47,7 +47,7 @@ void Select::updateLauncher() {
 void Select::draw() const {
 
 	// タイトル
-	FontAsset(L"title")(L"CCS 作品集").draw(10, 10);
+	FontAsset(L"title")(L"CCS Works").draw(10, 10);
 
 	// アイテムアイコンの描画
 	for (const auto& item : m_items) {

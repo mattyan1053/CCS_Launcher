@@ -26,8 +26,6 @@ private:
 	/// </summary>
 	Button m_detailButton;
 
-	int32 m_itemPos;
-
 public:
 
 	/// <summary>

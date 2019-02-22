@@ -27,9 +27,9 @@ struct AppData {
 	String usingtext;
 
 	/// <summary>
-	/// readmeの内容
+	/// readmeの内容イメージ
 	/// </summary>
-	String readme;
+	Texture readme;
 };
 
 /// <summary>

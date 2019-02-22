@@ -171,6 +171,7 @@
     <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SelectItem.cpp" />
+    <ClCompile Include="Tag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -289,11 +290,13 @@
     <ClInclude Include="Defines.hpp" />
     <ClInclude Include="Detail.hpp" />
     <ClInclude Include="InfoLoader.hpp" />
+    <ClInclude Include="InlineFrame.hpp" />
     <ClInclude Include="Launcher.hpp" />
     <ClInclude Include="ResourceLoader.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Select.hpp" />
     <ClInclude Include="SelectItem.hpp" />
+    <ClInclude Include="Tag.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

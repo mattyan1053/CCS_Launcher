@@ -6,6 +6,8 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 	Array<FilePath> fileList = FileSystem::DirectoryContents(path);
 	AppData appData;
 
+	Font font(10, Typeface::Default);
+
 	for (const auto& file : fileList) {
 
 		// screenshotのロード
@@ -25,8 +27,16 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 
 		// readmeのロード
 		if (file.includes(L"readme") || file.includes(L"readMe") || file.includes(L"Readme") || file.includes(L"ReadMe") || file.includes(L"README")) {
+			// テキストファイル読み込み
 			TextReader reader(file);
-			appData.readme = reader.readAll();
+			String content = reader.readAll();
+
+			// イメージ変換
+			Image contentImg;
+			contentImg.resize(font.region(content).size, Palette::White);
+			font.write(contentImg, content, Point::Zero, Palette::Black);
+			appData.readme = Texture(contentImg);
+
 			continue;
 		}
 

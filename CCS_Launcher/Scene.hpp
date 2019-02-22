@@ -47,10 +47,17 @@ public:
 	virtual ~BaseScene() = default;
 
 	/// <summary>
-	/// 画面情報更新&シーン遷移
+	/// 情報更新&シーン遷移
 	/// </summary>
 	void update() override;
 
+	/// <summary>
+	/// ランチャーの更新
+	/// </summary>
+	/// <remarks>
+	/// プロセスの起動判定をしたあと呼ばれる。
+	/// 必ずオーバーライドすること
+	/// </remarks>
 	virtual void updateLauncher() = 0;
 
 };

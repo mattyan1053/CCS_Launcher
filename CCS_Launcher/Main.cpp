@@ -7,8 +7,8 @@ void Main()
 {
 
 	// ウィンドウの設定
-	Window::SetTitle(L"CCS Work Station");
-	Window::Resize(1000, 750);
+	Window::SetTitle(L"CCS Works");
+	Window::Resize(1200, 750);
 
 	Graphics::SetBackground(Palette::Skyblue);
 
