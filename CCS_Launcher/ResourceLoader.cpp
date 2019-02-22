@@ -22,5 +22,6 @@ void ResourceLoader::loadFonts() {
 void ResourceLoader::loadTextures() {
 
 	TextureAsset::Register(L"No image", L"img/noimg.png");
+	TextureAsset::Register(L"ccslogo", L"img/ccslogoonly.png");
 
 }

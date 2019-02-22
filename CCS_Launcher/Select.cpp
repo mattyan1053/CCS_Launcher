@@ -46,6 +46,9 @@ void Select::updateLauncher() {
 
 void Select::draw() const {
 
+	// ”wŒi
+	TextureAsset(L"ccslogo").resize(500, 500).draw(Window::Size() - Point(470, 370));
+
 	// ƒ^ƒCƒgƒ‹
 	FontAsset(L"title")(L"CCS Works").draw(10, 10);
 
