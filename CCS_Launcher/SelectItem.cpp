@@ -18,6 +18,7 @@ SelectItem::SelectItem(const unsigned int _id, const AppInfo appInfo)
 
 int SelectItem::update(const unsigned int _id) {
 
+	// 選択状態なら拡大、そうでなければ本のサイズに戻す
 	if (m_isMouseOver = m_frame.movedBy({ m_itemPos, 0 }).mouseOver || id == _id) {
 		m_stretchRate = Min(m_stretchRate + stretchRateMax / 10, stretchRateMax);
 		return 1;
@@ -36,7 +37,7 @@ int SelectItem::checkClick() {
 
 void SelectItem::draw() const {
 
-	m_frame.movedBy({ m_itemPos, 0 }).stretched(m_stretchRate).drawShadow({ m_stretchRate + 5,  m_stretchRate + 5 }, m_stretchRate, 0);
+	m_frame.movedBy({ m_itemPos, 0 }).stretched(m_stretchRate).drawShadow({ m_stretchRate,  m_stretchRate }, m_stretchRate, 6);
 	m_frame.movedBy({ m_itemPos, 0 }).stretched(m_stretchRate)(m_appInfo.appData.screenshot).draw().drawFrame(0, 10, Palette::White);
 
 }
