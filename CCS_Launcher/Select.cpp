@@ -4,14 +4,16 @@
 
 void Select::init() {
 
+	// スクリーンショットアイテム
 	SelectItem::setItemNum(m_data->apps.size());
-
 	for (size_t i = 0; i < (m_data->apps).size(); i++) {
 		m_items.emplace_back(i, m_data->apps[i]);
 	}
 
+	// 概要欄
 	m_frameSummary.set(summaryPos, summarySize);
 
+	// ボタン
 	m_detailButton.set(buttonPos, buttonSize, L"くわしく見る");
 
 }
@@ -20,7 +22,6 @@ void Select::updateLauncher() {
 
 	// アイテムの移動
 	const int32 wheelY = Mouse::Wheel();
-
 	SelectItem::moveItemPos(wheelY);
 
 	// 各アイテムの状態更新
@@ -37,7 +38,6 @@ void Select::updateLauncher() {
 			changeScene(L"Detail");
 		}
 	}
-
 	if (m_detailButton.update()) {
 		changeScene(L"Detail");
 	}
