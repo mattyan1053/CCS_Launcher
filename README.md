@@ -27,7 +27,7 @@ mygame.exe
 ## 制作
 
 ### 制作者
-抹茶
+抹茶(Twitter@mattyan1053)
 
 ### 使用したライブラリ等
 Siv3D(https://play-siv3d.hateblo.jp/)
