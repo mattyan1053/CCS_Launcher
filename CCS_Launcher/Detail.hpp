@@ -10,9 +10,9 @@ class Detail : public BaseScene {
 public:
 
 	/// <summary>
-	/// コンストラクタ
+	/// デフォルトコンストラクタ
 	/// </summary>
-	Detail();
+	Detail() = default;
 
 	/// <summary>
 	/// 画面情報更新&シーン遷移

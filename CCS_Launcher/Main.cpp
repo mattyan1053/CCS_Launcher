@@ -8,7 +8,9 @@ void Main()
 
 	// ウィンドウの設定
 	Window::SetTitle(L"CCS Work Station");
-	Window::Resize(1000, 600);
+	Window::Resize(1000, 750);
+
+	Graphics::SetBackground(Palette::Skyblue);
 
 	// リソースの読み込み
 	ResourceLoader resourceLoader;

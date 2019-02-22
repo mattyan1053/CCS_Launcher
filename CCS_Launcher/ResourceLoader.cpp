@@ -11,7 +11,9 @@ void ResourceLoader::load() {
 
 void ResourceLoader::loadFonts() {
 
-	FontAsset::Register(L"nomal", 35, Typeface::Black);
+	FontAsset::Register(L"title", 35, Typeface::Black);
+	FontAsset::Register(L"summary", 20, Typeface::Black);
+	FontAsset::Register(L"button", 20, Typeface::Default);
 
 }
 
