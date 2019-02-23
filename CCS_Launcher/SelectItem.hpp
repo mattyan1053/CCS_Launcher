@@ -76,11 +76,6 @@ public:
 	~SelectItem() = default;
 
 	/// <summary>
-	/// アイテムの位置をitemPosにあわせて修正
-	/// </summary>
-	void correctItemPos();
-
-	/// <summary>
 	/// アイテム情報の更新
 	/// </summary>
 	/// <returns>

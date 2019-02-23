@@ -9,7 +9,8 @@ int32 SelectItem::m_itemNum = 0;
 SelectItem::SelectItem(const unsigned int _id, const AppInfo appInfo)
 	: id(_id),
 	m_appInfo(appInfo),
-	m_isMouseOver(false)
+	m_isMouseOver(false),
+	m_stretchRate(0)
 {
 	m_pos = { id * (itemSize.x + marginX), marginTop };
 	m_frame.setPos(m_pos);
