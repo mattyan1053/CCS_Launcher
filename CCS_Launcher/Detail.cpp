@@ -57,14 +57,20 @@ void Detail::draw() const{
 	const Mat3x2 mat = Mat3x2::Rotate(-5_deg, screenshotPos);
 	{
 		const Transformer2D transformer(mat, true);
-		const Rect readmeFrame(screenshotPos, screenshotSize);
-		FontAsset(L"title")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
-		readmeFrame.drawShadow({ 6, 6 }, 3, 5);
-		if (m_data->apps[m_data->selectedID].isMovieExist) {
-			readmeFrame(m_data->apps[m_data->selectedID].appData.demo.getFrameTexture().resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
+		const Rect screenshotFrame(screenshotPos, screenshotSize);
+		// タイトルの文字数が大きい場合は小さいフォントを使う
+		if (FontAsset(L"title")(m_data->apps[m_data->selectedID].name).region().w < screenshotSizeX + 80) {
+			FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
 		}
 		else {
-			readmeFrame(m_data->apps[m_data->selectedID].appData.screenshot.resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
+			FontAsset(L"subtitle")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
+		}
+		screenshotFrame.drawShadow({ 6, 6 }, 3, 5);
+		if (m_data->apps[m_data->selectedID].isMovieExist) {
+			screenshotFrame(m_data->apps[m_data->selectedID].appData.demo.getFrameTexture().resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
+		}
+		else {
+			screenshotFrame(m_data->apps[m_data->selectedID].appData.screenshot.resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
 		}
 	}
 
