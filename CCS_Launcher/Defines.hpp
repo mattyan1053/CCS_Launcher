@@ -17,6 +17,11 @@ struct AppData {
 	Texture screenshot;
 
 	/// <summary>
+	/// デモムービーデータ（AVI, WMVのみ）
+	/// </summary>
+	VideoPlayer demo;
+
+	/// <summary>
 	/// ゲームジャンル
 	/// </summary>
 	String kind;
@@ -51,4 +56,10 @@ struct AppInfo {
 	/// アプリケーションの本データ
 	/// </summary>
 	AppData appData;
+
+	/// <summary>
+	/// デモムービーがあるか？
+	/// </summary>
+	bool isMovieExist;
+
 };

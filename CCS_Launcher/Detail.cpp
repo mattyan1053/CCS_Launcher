@@ -12,19 +12,37 @@ void Detail::init() {
 	m_kind.set(tagPos, tagSize, L"ゲームジャンル：" + m_data->apps[m_data->selectedID].appData.kind);
 	m_usetext.set(tagPos + Point(0, tagSize.y + 20), tagSize, L"操作：" + m_data->apps[m_data->selectedID].appData.usingtext);
 
+	// Readme　設定
 	frame = InlineFrame(Rect(readmePos, readmeSize));
+
+	// 動画再生
+	if (m_data->apps[m_data->selectedID].isMovieExist) {
+		m_data->apps[m_data->selectedID].appData.demo.play();
+	}
 
 }
 
 void Detail::updateLauncher() {
 
+	// 動画更新
+	if (m_data->apps[m_data->selectedID].isMovieExist) {
+		if (!m_data->apps[m_data->selectedID].appData.demo.isPlaying()) m_data->apps[m_data->selectedID].appData.demo.play();
+		m_data->apps[m_data->selectedID].appData.demo.update();
+	}
+
 	// 戻る
 	if (m_backButton.update()) {
+		if (m_data->apps[m_data->selectedID].isMovieExist) {
+			m_data->apps[m_data->selectedID].appData.demo.stop();
+		}
 		changeScene(L"Select");
 	}
 
 	// 遊ぶ
 	if (m_startButton.update()) {
+		if (m_data->apps[m_data->selectedID].isMovieExist) {
+			m_data->apps[m_data->selectedID].appData.demo.pause();
+		}
 		m_data->process = System::CreateProcess(m_data->apps[m_data->selectedID].appData.executePath);
 	}
 
@@ -39,10 +57,15 @@ void Detail::draw() const{
 	const Mat3x2 mat = Mat3x2::Rotate(-5_deg, screenshotPos);
 	{
 		const Transformer2D transformer(mat, true);
-		const Rect frame(screenshotPos, screenshotSize);
+		const Rect readmeFrame(screenshotPos, screenshotSize);
 		FontAsset(L"title")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
-		frame.drawShadow({ 6, 6 }, 3, 5);
-		frame(m_data->apps[m_data->selectedID].appData.screenshot.resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
+		readmeFrame.drawShadow({ 6, 6 }, 3, 5);
+		if (m_data->apps[m_data->selectedID].isMovieExist) {
+			readmeFrame(m_data->apps[m_data->selectedID].appData.demo.getFrameTexture().resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
+		}
+		else {
+			readmeFrame(m_data->apps[m_data->selectedID].appData.screenshot.resize(screenshotSize)).draw().drawFrame(10, 0, Palette::Black).drawFrame(11, 0, Palette::White);
+		}
 	}
 
 	// 付箋

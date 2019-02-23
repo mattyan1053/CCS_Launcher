@@ -5,6 +5,7 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 
 	Array<FilePath> fileList = FileSystem::DirectoryContents(path);
 	AppData appData;
+	m_isMovieExist = false;
 
 	Font font(10, Typeface::Default);
 
@@ -40,6 +41,14 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 			continue;
 		}
 
+		// デモムービーのロード
+		if (file.includes(L"Demo") || file.includes(L"demo")) {
+			if (file.includes(L".avi") || file.includes(L".AVI") || file.includes(L".wmv") || file.includes(L".WMV")) {
+				appData.demo.open(file);
+				m_isMovieExist = true;
+			}
+		}
+
 	}
 
 	// 実行ファイルのパス変換
@@ -56,7 +65,7 @@ Array<AppInfo> InfoLoader::load() {
 
 	// アプリケーションごとにAppInfoを作成して追加
 	for (unsigned int i = 0; i < folderList.size(); i++) {
-		apps.push_back({i, FileSystem::BaseName(folderList[i]), loadAppData(folderList[i])});
+		apps.push_back({ i, FileSystem::BaseName(folderList[i]), loadAppData(folderList[i]), m_isMovieExist });
 	}
 
 	return apps;

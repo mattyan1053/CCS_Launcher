@@ -15,6 +15,11 @@ private:
 	FilePath m_folderPath;
 
 	/// <summary>
+	/// デモムービー存在フラグ
+	/// </summary>
+	bool m_isMovieExist;
+
+	/// <summary>
 	/// アプリケーションの情報を取得します。
 	/// </summary>
 	/// <param name = "path">
