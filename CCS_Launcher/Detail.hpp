@@ -4,7 +4,6 @@
 # include "Button.hpp"
 # include "Tag.hpp"
 # include "InlineFrame.hpp"
-# include "Fade.hpp"
 
 /// <summary>
 /// アプリケーション内容詳細＆起動画面
@@ -95,21 +94,5 @@ public:
 	/// 画面描画
 	/// </summary>
 	void draw() const override;
-
-	/// <summary>
-	/// フェードイン時の演出
-	/// </summary>
-	void drawFadeIn(double t) const override {
-		draw();
-		FadeIn(t);
-	}
-
-	/// <summary>
-	/// フェードアウト時の演出
-	/// </summary>
-	void drawFadeOut(double t) const override {
-		draw();
-		FadeOut(t);
-	}
 
 };

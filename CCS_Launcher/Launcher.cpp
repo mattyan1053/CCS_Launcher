@@ -11,10 +11,11 @@ Launcher::Launcher(const FilePath& path) : m_infoLoader(path) {
 
 	m_manager.add<Select>(L"Select");
 	m_manager.add<Detail>(L"Detail");
+	m_manager.add<Demo>(L"Demo");
 
 }
 
-void Launcher::start() {
+void Launcher::init() {
 
 	while (System::Update()) {
 		m_manager.updateAndDraw();

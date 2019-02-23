@@ -2,6 +2,7 @@
 # include <Siv3D.hpp>
 # include <HamFramework.hpp>
 # include "Defines.hpp"
+# include "Fade.hpp"
 
 /// <summary>
 /// シーン遷移で共有するデータ
@@ -59,5 +60,21 @@ public:
 	/// 必ずオーバーライドすること
 	/// </remarks>
 	virtual void updateLauncher() = 0;
+
+	/// <summary>
+	/// フェードイン時の演出
+	/// </summary>
+	void drawFadeIn(double t) const override {
+		draw();
+		FadeIn(t);
+	}
+
+	/// <summary>
+	/// フェードアウト時の演出
+	/// </summary>
+	void drawFadeOut(double t) const override {
+		draw();
+		FadeOut(t);
+	}
 
 };

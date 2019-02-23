@@ -163,6 +163,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Demo.cpp" />
+    <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="Detail.cpp" />
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="InfoLoader.cpp" />
@@ -289,6 +291,8 @@
   <ItemGroup>
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Defines.hpp" />
+    <ClInclude Include="Demo.hpp" />
+    <ClInclude Include="DemoScene.hpp" />
     <ClInclude Include="Detail.hpp" />
     <ClInclude Include="Fade.hpp" />
     <ClInclude Include="InfoLoader.hpp" />
@@ -299,6 +303,7 @@
     <ClInclude Include="Select.hpp" />
     <ClInclude Include="SelectItem.hpp" />
     <ClInclude Include="Tag.hpp" />
+    <ClInclude Include="WindowSetting.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

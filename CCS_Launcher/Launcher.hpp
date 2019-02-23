@@ -5,6 +5,7 @@
 # include "InfoLoader.hpp"
 # include "Select.hpp"
 # include "Detail.hpp"
+# include "Demo.hpp"
 
 /// <summary>
 /// ランチャー本体総括クラス
@@ -36,5 +37,5 @@ public:
 	/// <summary>
 	/// ランチャーの開始
 	/// </summary>
-	void start();
+	void init();
 };

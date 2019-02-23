@@ -3,7 +3,6 @@
 # include "Scene.hpp"
 # include "SelectItem.hpp"
 # include "Button.hpp"
-# include "Fade.hpp"
 
 /// <summary>
 /// アプリケーション選択画面
@@ -27,6 +26,11 @@ private:
 	/// </summary>
 	Button m_detailButton;
 
+	/// <summary>
+	/// デモ遷移ボタン
+	/// </summary>
+	Button m_demoButton;
+
 public:
 
 	/// <summary>
@@ -40,6 +44,7 @@ public:
 	/// </summary>
 	const Size buttonSize = { 200, 60 };
 	const Point buttonPos = { summaryPos + summarySize - buttonSize - Point(50, 20) };
+	const Point demoButtonPos = { Window::Size().x - buttonSize.x - 50, 10 };
 
 	/// <summary>
 	/// デフォルトコンストラクタ
@@ -60,21 +65,5 @@ public:
 	/// 画面描画
 	/// </summary>
 	void draw() const override;
-
-	/// <summary>
-	/// フェードイン時の演出
-	/// </summary>
-	void drawFadeIn(double t) const override {
-		draw();
-		FadeIn(t);
-	}
-
-	/// <summary>
-	/// フェードアウト時の演出
-	/// </summary>
-	void drawFadeOut(double t) const override {
-		draw();
-		FadeOut(t);
-	}
 
 };

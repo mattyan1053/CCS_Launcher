@@ -15,6 +15,7 @@ void Select::init() {
 
 	// ボタン
 	m_detailButton.set(buttonPos, buttonSize, L"くわしく見る");
+	m_demoButton.set(demoButtonPos, buttonSize, L"Demo");
 
 }
 
@@ -42,6 +43,10 @@ void Select::updateLauncher() {
 		changeScene(L"Detail");
 	}
 
+	if (m_demoButton.update()) {
+		changeScene(L"Demo");
+	}
+
 }
 
 void Select::draw() const {
@@ -50,7 +55,7 @@ void Select::draw() const {
 	TextureAsset(L"ccslogo").resize(500, 500).draw(Window::Size() - Point(470, 370));
 
 	// タイトル
-	FontAsset(L"title")(L"CCS Works").draw(10, 10);
+	FontAsset(L"title")(L"CCS Works").draw(50, 10);
 
 	// アイテムアイコンの描画
 	for (const auto& item : m_items) {
@@ -67,5 +72,6 @@ void Select::draw() const {
 	FontAsset(L"summary")(L"操作：" + m_data->apps[m_data->selectedID].appData.usingtext).draw(40, 560, Palette::Black);
 
 	m_detailButton.draw();
+	m_demoButton.draw();
 
 }
