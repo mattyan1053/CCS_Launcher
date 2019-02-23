@@ -37,7 +37,7 @@ void DemoScene::update() {
 		m_data->apps[m_id].appData.demo.update();
 
 		// ƒV[ƒ“Ø‚è‘Ö‚¦
-		if (m_data->apps[m_id].appData.demo.getPosSec() == m_data->apps[m_id].appData.demo.getLengthSec()) {
+		if (m_data->apps[m_id].appData.demo.getLengthSec() - m_data->apps[m_id].appData.demo.getPosSec() < 1.0) {
 			m_data->apps[m_id].appData.demo.stop();
 			m_data->playingID = Random<unsigned int>(m_data->appsNum - 1);
 			changeScene(m_data->playingID);
