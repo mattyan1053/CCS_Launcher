@@ -47,6 +47,11 @@ private:
 	/// </summary>
 	int32 m_moveFlag = 0;
 
+	/// <summary>
+	/// Demo起動までの待機時間管理用ストップウォッチ
+	/// </summary>
+	Stopwatch stopwatch;
+
 public:
 
 	/// <summary>

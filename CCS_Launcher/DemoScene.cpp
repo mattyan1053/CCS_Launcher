@@ -21,8 +21,8 @@ void DemoScene::init() {
 
 void DemoScene::update() {
 	
-	// 左クリックで選択画面に戻る
-	if (Input::MouseL.clicked) {
+	// 左クリック、または何かキー入力で選択画面に戻る
+	if (Input::MouseL.clicked || Input::AnyKeyClicked()) {
 		if (m_isVideo) {
 			m_data->apps[m_id].appData.demo.stop();
 		}

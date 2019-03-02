@@ -20,9 +20,23 @@ void Select::init() {
 	m_leftButton.set(leftButtonPos, moveButtonRadius, L"←");
 	m_rightButton.set(rightButtonPos, moveButtonRadius, L"→");
 
+	stopwatch.start();
+
 }
 
 void Select::updateLauncher() {
+
+	// 時間経過によるDemoムービーの起動(１分マウス操作なし)
+	if (Mouse::Delta() != Point::Zero) {
+		stopwatch.reset();
+		stopwatch.start();
+	}
+	else {
+		if (!stopwatch.isActive()) stopwatch.start();
+	}
+	if (stopwatch.min() >= 1) {
+		changeScene(L"Demo");
+	}
 
 	// アイテムの移動
 	const int32 wheelY = Mouse::Wheel();
