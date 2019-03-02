@@ -3,6 +3,9 @@
 # include "Defines.hpp"
 # include "Tag.hpp"
 
+/// <summary>
+/// アプリケーションアイテム用クラス
+/// </summary>
 class SelectItem {
 
 private:
@@ -55,9 +58,13 @@ public:
 	/// </summary>
 	static const int32 sizeX = 350;
 	const Size itemSize = { sizeX, sizeX * 3 / 4 };
+	const double stretchRateMax = 40.0;
+
+	/// <summary>
+	/// 余白
+	/// </summary>
 	static const int32 marginX = 60;
 	const int32 marginTop = 150;
-	const double stretchRateMax = 40.0;
 
 	/// <summary>
 	/// アプリケーション名タグのサイズ

@@ -34,7 +34,7 @@ int SelectItem::checkPos() {
 
 int SelectItem::update(const unsigned int _id) {
 
-	// 選択状態なら拡大、そうでなければ本のサイズに戻す
+	// 選択状態なら拡大、そうでなければ元のサイズに戻す
 	if (m_isMouseOver = m_frame.movedBy({ m_itemPos, 0 }).mouseOver || id == _id) {
 		m_stretchRate = Min(m_stretchRate + stretchRateMax / 10, stretchRateMax);
 		return 1;
