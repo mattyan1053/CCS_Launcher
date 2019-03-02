@@ -62,4 +62,11 @@ void DemoScene::draw() const {
 		m_data->apps[m_id].appData.screenshot.resize(Window::Size()).draw();
 	}
 
+	Mat3x2 mat(Mat3x2::Rotate(Radians(20), m_tagPos));
+
+	{
+		const Transformer2D transformer(mat, true);
+		Tag(m_tagPos, m_tagSize, m_data->apps[m_data->playingID].name, Palette::Aliceblue).draw();
+	}
+
 }

@@ -19,6 +19,11 @@ private:
 	Rect rect;
 
 	/// <summary>
+	/// 背景色
+	/// </summary>
+	Color clr;
+
+	/// <summary>
 	/// ２D回転用
 	/// </summary>
 	Mat3x2 mat;
@@ -45,6 +50,23 @@ public:
 	Tag(Point pos, Size size, String _text);
 
 	/// <summary>
+	/// コンストラクタ
+	/// </summary>
+	/// <param name="pos">
+	/// 付箋の位置
+	/// </param>
+	/// <param name="size">
+	/// 付箋のサイズ
+	/// </param>
+	/// <param name="_text">
+	/// 付箋のテキスト
+	/// </param>
+	/// <param name="_clr">
+	/// 付箋色
+	/// </param>
+	Tag(Point pos, Size size, String _text, Color _clr);
+
+	/// <summary>
 	/// パラメータ再設定
 	/// </summary>
 	/// <param name="pos">
@@ -57,6 +79,23 @@ public:
 	/// 付箋のテキスト
 	/// </param>
 	void set(Point pos, Size size, String _text);
+
+	/// <summary>
+	/// 背景色付き設定
+	/// </summary>
+	/// <param name="pos">
+	/// 付箋位置
+	/// </param>
+	/// <param name="size">
+	/// 付箋サイズ
+	/// </param>
+	/// <param name="_text">
+	/// 付箋テキスト
+	/// </param>
+	/// <param name="_clr">
+	/// 付箋色
+	/// </param>
+	void set(Point pos, Size size, String _text, Color _clr);
 
 	/// <summary>
 	/// 付箋の描画

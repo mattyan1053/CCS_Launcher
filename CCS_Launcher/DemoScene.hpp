@@ -2,6 +2,7 @@
 # include <Siv3D.hpp>
 # include <HamFramework.hpp>
 # include "Demo.hpp"
+# include "Tag.hpp"
 
 /// <summary>
 /// デモシーンクラス
@@ -29,6 +30,16 @@ private:
 	/// 表示間隔
 	/// </summary>
 	int32 waitTime = 10;
+
+	/// <summary>
+	/// アプリケーション名タグ位置
+	/// </summary>
+	const Point m_tagPos = { 920, -20 };
+
+	/// <summary>
+	/// アプリケーション名タグサイズ
+	/// </summary>
+	const Size m_tagSize = { 400, 80 };
 
 public:
 
