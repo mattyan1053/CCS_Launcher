@@ -26,7 +26,7 @@ void Select::init() {
 
 void Select::updateLauncher() {
 
-	// 時間経過によるDemoムービーの起動(１分マウス操作なし)
+	// 時間経過によるDemoムービーの起動( 2 分マウス操作なし)
 	if (Mouse::Delta() != Point::Zero) {
 		stopwatch.reset();
 		stopwatch.start();
@@ -34,7 +34,7 @@ void Select::updateLauncher() {
 	else {
 		if (!stopwatch.isActive()) stopwatch.start();
 	}
-	if (stopwatch.min() >= 1) {
+	if (stopwatch.min() >= 2) {
 		changeScene(L"Demo");
 	}
 
