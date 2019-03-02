@@ -1,6 +1,7 @@
 # pragma once
 # include <Siv3D.hpp>
 # include "Defines.hpp"
+# include "Tag.hpp"
 
 class SelectItem {
 
@@ -52,11 +53,16 @@ public:
 	/// <summary>
 	/// アイテムのサイズ
 	/// </summary>
-	static const int32 sizeX = 300;
+	static const int32 sizeX = 350;
 	const Size itemSize = { sizeX, sizeX * 3 / 4 };
 	static const int32 marginX = 60;
-	const int32 marginTop = 130;
+	const int32 marginTop = 150;
 	const double stretchRateMax = 40.0;
+
+	/// <summary>
+	/// アプリケーション名タグのサイズ
+	/// </summary>
+	const Size nameTagSize = { sizeX - 30, 60 };
 
 	/// <summary>
 	/// コンストラクタ

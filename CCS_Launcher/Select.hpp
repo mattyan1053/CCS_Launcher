@@ -57,18 +57,19 @@ public:
 	/// <summary>
 	/// 概要欄パラメータ
 	/// </summary>
-	const Point summaryPos = { 120, 450 };
-	const Size summarySize = { 700, 250 };
+	const Point summaryPos = { 50, 490 };
+	const Size summarySize = { 850, 210 };
+	const int32 summaryMarginTop = 20;
 
 	/// <summary>
 	/// ボタンパラメータ
 	/// </summary>
 	const Size buttonSize = { 200, 60 };
-	const Point buttonPos = { summaryPos + summarySize - buttonSize - Point(50, 20) };
-	const Point demoButtonPos = { Window::Size().x - buttonSize.x - 50, 10 };
+	const Point buttonPos = { summaryPos + summarySize - buttonSize - Point(20, 20) };
+	const Point demoButtonPos = { Window::Size().x - buttonSize.x - 50, 30 };
 	const int32 moveButtonRadius = 40;
-	const Point leftButtonPos = { 20 + moveButtonRadius, 240 };
-	const Point rightButtonPos = { Window::Size().x - 20 - moveButtonRadius, 240 };
+	const Point leftButtonPos = { 20 + moveButtonRadius, 280 };
+	const Point rightButtonPos = { Window::Size().x - 20 - moveButtonRadius, 280 };
 
 	/// <summary>
 	/// デフォルトコンストラクタ

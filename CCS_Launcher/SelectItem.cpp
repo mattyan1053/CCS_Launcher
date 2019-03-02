@@ -56,6 +56,13 @@ void SelectItem::draw() const {
 	m_frame.movedBy({ m_itemPos, 0 }).stretched(m_stretchRate).drawShadow({ m_stretchRate,  m_stretchRate }, m_stretchRate, 6);
 	m_frame.movedBy({ m_itemPos, 0 }).stretched(m_stretchRate)(m_appInfo.appData.screenshot).draw().drawFrame(0, 10, Palette::White);
 
+	{
+		const Tag tag({ m_frame.movedBy({ m_itemPos, 0 }).pos.x + 15,m_frame.movedBy({ m_itemPos, 0 }).pos.y + itemSize.y - nameTagSize.y }, nameTagSize, m_appInfo.name, Palette::Aliceblue);
+		const Transformer2D transformer(Mat3x2::Scale(m_stretchRate / 100 + 1, tag.center() - Point(0, 50)).rotate(Radians(-5), tag.center()));
+		tag.draw();
+	}
+
+
 }
 
 void SelectItem::moveItemPos(int32 diff) {

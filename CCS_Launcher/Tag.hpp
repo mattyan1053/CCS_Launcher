@@ -97,6 +97,10 @@ public:
 	/// </param>
 	void set(Point pos, Size size, String _text, Color _clr);
 
+	Point center() const {
+		return rect.center;
+	}
+
 	/// <summary>
 	/// •tâ³‚Ì•`‰æ
 	/// </summary>
