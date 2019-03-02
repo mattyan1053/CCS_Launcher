@@ -59,11 +59,11 @@ void Detail::draw() const{
 		const Transformer2D transformer(mat, true);
 		const Rect screenshotFrame(screenshotPos, screenshotSize);
 		// タイトルの文字数が大きい場合は小さいフォントを使う
-		if (FontAsset(L"title")(m_data->apps[m_data->selectedID].name).region().w < screenshotSizeX + 80) {
-			FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
+		if (FontAsset(L"title")(m_data->apps[m_data->selectedID].name).region().w < screenshotSizeX + 50) {
+			FontAsset(L"title")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
 		}
 		else {
-			FontAsset(L"subtitle")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
+			FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
 		}
 		screenshotFrame.drawShadow({ 6, 6 }, 3, 5);
 		if (m_data->apps[m_data->selectedID].isMovieExist) {
