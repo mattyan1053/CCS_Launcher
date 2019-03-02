@@ -97,6 +97,12 @@ public:
 	/// </param>
 	void set(Point pos, Size size, String _text, Color _clr);
 
+	/// <summary>
+	/// 付箋中心座標取得
+	/// </summary>
+	/// <returns>
+	/// 付箋の中心座標
+	/// </returns>
 	Point center() const {
 		return rect.center;
 	}
