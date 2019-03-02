@@ -17,6 +17,7 @@ void ResourceLoader::loadFonts() {
 	FontAsset::Register(L"summary", 20, Typeface::Black);
 	FontAsset::Register(L"button", 20, Typeface::Default);
 	FontAsset::Register(L"tag", 13, Typeface::Default);
+	FontAsset::Register(L"arrow", 50, Typeface::Black);
 
 }
 

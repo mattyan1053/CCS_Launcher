@@ -163,6 +163,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CircleButton.cpp" />
     <ClCompile Include="Demo.cpp" />
     <ClCompile Include="DemoScene.cpp" />
     <ClCompile Include="Detail.cpp" />
@@ -290,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="CircleButton.hpp" />
     <ClInclude Include="Defines.hpp" />
     <ClInclude Include="Demo.hpp" />
     <ClInclude Include="DemoScene.hpp" />

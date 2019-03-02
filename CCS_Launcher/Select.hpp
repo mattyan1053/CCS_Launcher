@@ -3,6 +3,7 @@
 # include "Scene.hpp"
 # include "SelectItem.hpp"
 # include "Button.hpp"
+# include "CircleButton.hpp"
 
 /// <summary>
 /// アプリケーション選択画面
@@ -31,12 +32,27 @@ private:
 	/// </summary>
 	Button m_demoButton;
 
+	/// <summary>
+	/// アイテム位置移動ボタン左
+	/// </summary>
+	CircleButton m_leftButton;
+
+	/// <summary>
+	/// アイテム位置移動ボタン右
+	/// </summary>
+	CircleButton m_rightButton;
+
+	/// <summary>
+	/// アイテム移動フラグ
+	/// </summary>
+	int32 m_moveFlag = 0;
+
 public:
 
 	/// <summary>
 	/// 概要欄パラメータ
 	/// </summary>
-	const Point summaryPos = {20, 450};
+	const Point summaryPos = { 120, 450 };
 	const Size summarySize = { 700, 250 };
 
 	/// <summary>
@@ -45,6 +61,9 @@ public:
 	const Size buttonSize = { 200, 60 };
 	const Point buttonPos = { summaryPos + summarySize - buttonSize - Point(50, 20) };
 	const Point demoButtonPos = { Window::Size().x - buttonSize.x - 50, 10 };
+	const int32 moveButtonRadius = 40;
+	const Point leftButtonPos = { 20 + moveButtonRadius, 240 };
+	const Point rightButtonPos = { Window::Size().x - 20 - moveButtonRadius, 240 };
 
 	/// <summary>
 	/// デフォルトコンストラクタ

@@ -122,4 +122,12 @@ public:
 	/// </param>
 	static void setItemNum(int32 itemNum);
 
+	/// <summary>
+	/// アイテム位置修正(画面外判定)
+	/// </summary>
+	/// <returns>
+	/// はみ出ていなければ 0 、左側にはみ出たとき 1 、右側にはみでたとき 2 を返す
+	/// </returns>
+	static int checkPos();
+
 };

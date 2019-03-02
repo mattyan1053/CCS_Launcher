@@ -17,6 +17,9 @@ void Select::init() {
 	m_detailButton.set(buttonPos, buttonSize, L"くわしく見る");
 	m_demoButton.set(demoButtonPos, buttonSize, L"Demo");
 
+	m_leftButton.set(leftButtonPos, moveButtonRadius, L"←");
+	m_rightButton.set(rightButtonPos, moveButtonRadius, L"→");
+
 }
 
 void Select::updateLauncher() {
@@ -30,6 +33,28 @@ void Select::updateLauncher() {
 		if (item.update(m_data->selectedID)) {
 			m_data->selectedID = item.id;
 		}
+	}
+
+	//アイテム移動ボタン
+	if (m_leftButton.update() && SelectItem::checkPos() != 1) {
+		m_moveFlag -= m_items[0].getItemWidth() * 3;
+	}
+	if (m_rightButton.update() && SelectItem::checkPos() != 2) {
+		m_moveFlag += m_items[0].getItemWidth() * 3;
+	}
+
+	if (m_moveFlag != 0) {
+		if (m_moveFlag > 0) {
+			if (m_moveFlag >= 100) m_moveFlag -= 100;
+			else m_moveFlag = 0;
+			SelectItem::moveItemPos(1);
+		}
+		else {
+			if (m_moveFlag <= -100) m_moveFlag += 100;
+			else m_moveFlag = 0;
+			SelectItem::moveItemPos(-1);
+		}
+		return; // スクロール中は操作不能に
 	}
 
 	// クリック時画面遷移
@@ -67,11 +92,17 @@ void Select::draw() const {
 	// 情報の描画
 	RoundRect(m_frameSummary, 30).drawShadow({ 2.0, 2.0, }, 2.0, 2.0);
 	RoundRect(m_frameSummary, 30).draw(Palette::White);
-	FontAsset(L"summary")(L"ゲーム名：" + m_data->apps[m_data->selectedID].name).draw(40, 500, Palette::Black);
-	FontAsset(L"summary")(L"ジャンル：" + m_data->apps[m_data->selectedID].appData.kind).draw(40, 530, Palette::Black);
-	FontAsset(L"summary")(L"操作：" + m_data->apps[m_data->selectedID].appData.usingtext).draw(40, 560, Palette::Black);
+	FontAsset(L"summary")(L"ゲーム名：" + m_data->apps[m_data->selectedID].name).draw(summaryPos.x + 20, summaryPos.y + 50, Palette::Black);
+	FontAsset(L"summary")(L"ジャンル：" + m_data->apps[m_data->selectedID].appData.kind).draw(summaryPos.x + 20, summaryPos.y + 50 + 30, Palette::Black);
+	FontAsset(L"summary")(L"操作：" + m_data->apps[m_data->selectedID].appData.usingtext).draw(summaryPos.x + 20, summaryPos.y + 50 + 30 * 2, Palette::Black);
 
 	m_detailButton.draw();
 	m_demoButton.draw();
+	if (SelectItem::checkPos() != 1) {
+		m_leftButton.draw();
+	}
+	if (SelectItem::checkPos() != 2) {
+		m_rightButton.draw();
+	}
 
 }

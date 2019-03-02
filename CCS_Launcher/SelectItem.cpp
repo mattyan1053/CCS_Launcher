@@ -17,6 +17,21 @@ SelectItem::SelectItem(const unsigned int _id, const AppInfo appInfo)
 	m_frame.setSize(itemSize);
 }
 
+int SelectItem::checkPos() {
+
+	if (m_itemPos >= marginX) {
+		m_itemPos = marginX;
+		return 1;
+	}
+	if (m_itemPos <= Window::Size().x - (sizeX + marginX) * m_itemNum - marginX) {
+		m_itemPos = Window::Size().x - (sizeX + marginX) * m_itemNum - marginX;
+		return 2;
+	}
+
+	return 0;
+
+}
+
 int SelectItem::update(const unsigned int _id) {
 
 	// 選択状態なら拡大、そうでなければ本のサイズに戻す
@@ -46,10 +61,7 @@ void SelectItem::draw() const {
 void SelectItem::moveItemPos(int32 diff) {
 
 	m_itemPos -= diff * 100;
-	if (m_itemPos > marginX) m_itemPos = marginX;
-	if (m_itemPos < Window::Size().x -  (sizeX + marginX) * m_itemNum - marginX) {
-		m_itemPos = Window::Size().x - (sizeX + marginX) * m_itemNum - marginX;
-	}
+	SelectItem::checkPos();
 
 }
 
