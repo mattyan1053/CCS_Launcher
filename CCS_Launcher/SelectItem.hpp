@@ -139,6 +139,12 @@ public:
 	/// アイテム位置状態用列挙体
 	/// </summary>
 	enum posState {
+
+		/// <summary>
+		/// 通常の状態
+		/// </summary>
+		ok,
+
 		/// <summary>
 		/// 左側にはみでている
 		/// </summary>
@@ -147,12 +153,7 @@ public:
 		/// <summary>
 		/// 右側にはみでている
 		/// </summary>
-		overRight,
-
-		/// <summary>
-		/// 通常の状態
-		/// </summary>
-		ok
+		overRight
 	};
 
 	/// <summary>
