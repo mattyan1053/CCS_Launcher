@@ -176,6 +176,7 @@
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SelectItem.cpp" />
     <ClCompile Include="Tag.cpp" />
+    <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -305,6 +306,7 @@
     <ClInclude Include="Select.hpp" />
     <ClInclude Include="SelectItem.hpp" />
     <ClInclude Include="Tag.hpp" />
+    <ClInclude Include="Tools.hpp" />
     <ClInclude Include="WindowSetting.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

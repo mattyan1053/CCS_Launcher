@@ -1,5 +1,6 @@
 # pragma once
 # include <Siv3D.hpp>
+# include "Tools.hpp"
 
 /// <summary>
 /// •tâ³ƒNƒ‰ƒX

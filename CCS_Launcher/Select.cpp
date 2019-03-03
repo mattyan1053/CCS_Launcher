@@ -106,9 +106,9 @@ void Select::draw() const {
 	// 情報の描画
 	RoundRect(m_frameSummary, 30).drawShadow({ 2.0, 2.0, }, 2.0, 2.0);
 	RoundRect(m_frameSummary, 30).draw(Palette::White);
-	FontAsset(L"summary")(L"ゲーム名：" + m_data->apps[m_data->selectedID].name).draw(summaryPos.x + 20, summaryPos.y + summaryMarginTop, Palette::Black);
-	FontAsset(L"summary")(L"ジャンル：" + m_data->apps[m_data->selectedID].appData.kind).draw(summaryPos.x + 20, summaryPos.y + summaryMarginTop + 40, Palette::Black);
-	FontAsset(L"summary")(L"操作：" + m_data->apps[m_data->selectedID].appData.usingtext).draw(summaryPos.x + 20, summaryPos.y + summaryMarginTop + 40 * 2, Palette::Black);
+	FontAsset(L"summary")(MakeTailCutString(L"ゲーム名：" + m_data->apps[m_data->selectedID].name, summarySize.x - 40, L"summary")).draw(summaryPos.x + 20, summaryPos.y + summaryMarginTop, Palette::Black);
+	FontAsset(L"summary")(MakeTailCutString(L"ジャンル：" + m_data->apps[m_data->selectedID].appData.kind, summarySize.x - 40, L"summary")).draw(summaryPos.x + 20, summaryPos.y + summaryMarginTop + 40, Palette::Black);
+	FontAsset(L"summary")(MakeTailCutString(L"操作：" + m_data->apps[m_data->selectedID].appData.usingtext, summarySize.x - 40, L"summary")).draw(summaryPos.x + 20, summaryPos.y + summaryMarginTop + 40 * 2, Palette::Black);
 
 	m_detailButton.draw();
 	m_demoButton.draw();

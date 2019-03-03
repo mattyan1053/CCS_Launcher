@@ -50,6 +50,6 @@ void Tag::draw() const {
 	rect.draw(clr);
 	
 
-	FontAsset(L"tag")(text).drawCenter(rect.center, Palette::Black);
+	FontAsset(L"tag")(MakeTailCutString(text, rect.w - 20, L"tag")).drawCenter(rect.center, Palette::Black);
 
 }
