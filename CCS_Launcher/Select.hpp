@@ -4,6 +4,7 @@
 # include "SelectItem.hpp"
 # include "Button.hpp"
 # include "CircleButton.hpp"
+# include "Tools.hpp"
 
 /// <summary>
 /// アプリケーション選択画面

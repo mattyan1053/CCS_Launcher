@@ -63,7 +63,7 @@ void Detail::draw() const{
 			FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
 		}
 		else {
-			FontAsset(L"title3")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
+			FontAsset(L"title3")(MakeTailCutString(m_data->apps[m_data->selectedID].name, screenshotSizeX + 50, L"title3")).draw(marginLeft, marginTop);
 		}
 		screenshotFrame.drawShadow({ 6, 6 }, 3, 5);
 		if (m_data->apps[m_data->selectedID].isMovieExist) {
