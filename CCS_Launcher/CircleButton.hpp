@@ -34,6 +34,12 @@ public:
 	/// </param>
 	void set(Point _pos, int32 r, String _text);
 
+	/// <summary>
+	/// ボタンのクリック判定
+	/// </summary>
+	/// <returns>
+	/// 押されていれば true 、押されていなければ false を返す
+	/// </returns>
 	bool update();
 
 	/// <summary>

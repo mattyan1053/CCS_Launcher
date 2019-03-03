@@ -50,10 +50,10 @@ void Select::updateLauncher() {
 	}
 
 	//アイテム移動ボタン
-	if (m_leftButton.update() && SelectItem::checkPos() != 1) {
+	if (m_leftButton.update() && SelectItem::checkPos() != SelectItem::overLeft) {
 		m_moveFlag -= m_items[0].getItemWidth() * 3;
 	}
-	if (m_rightButton.update() && SelectItem::checkPos() != 2) {
+	if (m_rightButton.update() && SelectItem::checkPos() != SelectItem::overRight) {
 		m_moveFlag += m_items[0].getItemWidth() * 3;
 	}
 
@@ -112,10 +112,10 @@ void Select::draw() const {
 
 	m_detailButton.draw();
 	m_demoButton.draw();
-	if (SelectItem::checkPos() != 1) {
+	if (SelectItem::checkPos() != SelectItem::overLeft) {
 		m_leftButton.draw();
 	}
-	if (SelectItem::checkPos() != 2) {
+	if (SelectItem::checkPos() != SelectItem::overRight) {
 		m_rightButton.draw();
 	}
 

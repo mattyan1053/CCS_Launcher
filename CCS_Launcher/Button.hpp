@@ -53,7 +53,7 @@ public:
 	/// ボタンの更新
 	/// </summary>
 	/// <returns>
-	/// ボタンが押されていたら 1 、押されていなければ 0 を返す
+	/// ボタンが押されていたら true 、押されていなければ false を返す
 	/// </returns>
 	bool update();
 

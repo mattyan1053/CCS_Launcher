@@ -17,37 +17,37 @@ SelectItem::SelectItem(const unsigned int _id, const AppInfo appInfo)
 	m_frame.setSize(itemSize);
 }
 
-int SelectItem::checkPos() {
+SelectItem::posState SelectItem::checkPos() {
 
 	if (m_itemPos >= marginX) {
 		m_itemPos = marginX;
-		return 1;
+		return overLeft;
 	}
 	if (m_itemPos <= Window::Size().x - (sizeX + marginX) * m_itemNum - marginX) {
 		m_itemPos = Window::Size().x - (sizeX + marginX) * m_itemNum - marginX;
-		return 2;
+		return overRight;
 	}
 
-	return 0;
+	return ok;
 
 }
 
-int SelectItem::update(const unsigned int _id) {
+bool SelectItem::update(const unsigned int _id) {
 
 	// 選択状態なら拡大、そうでなければ元のサイズに戻す
 	if (m_isMouseOver = m_frame.movedBy({ m_itemPos, 0 }).mouseOver || id == _id) {
 		m_stretchRate = Min(m_stretchRate + stretchRateMax / 10, stretchRateMax);
-		return 1;
+		return true;
 	}
 	m_stretchRate = Max(m_stretchRate - stretchRateMax / 20, 0.0);
-	return 0;
+	return false;
 
 }
 
-int SelectItem::checkClick() {
+bool SelectItem::checkClick() {
 
-	if (m_frame.movedBy({ m_itemPos, 0 }).leftClicked) return 1;
-	return 0;
+	if (m_frame.movedBy({ m_itemPos, 0 }).leftClicked) return true;
+	return false;
 
 }
 
