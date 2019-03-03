@@ -22,6 +22,8 @@ void Demo::init() {
 		m_manager.add<DemoScene>(i);
 	}
 
+	Cursor::SetStyle(CursorStyle::None);
+
 }
 
 void Demo::updateLauncher() {
