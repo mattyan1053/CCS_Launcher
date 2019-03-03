@@ -92,17 +92,17 @@ public:
 	/// アイテム情報の更新
 	/// </summary>
 	/// <returns>
-	/// マウスオーバーしていれば 1 、していなければ 0 を返す
+	/// マウスオーバーしていれば true 、していなければ false を返す
 	/// </returns>
-	int update(const unsigned int _id);
+	bool update(const unsigned int _id);
 
 	/// <summary>
 	/// アイテムのクリック判定
 	/// </summary>
 	/// <returns>
-	/// クリックされていれば 1 、されていなければ 0 を返す
+	/// クリックされていれば true 、されていなければ false を返す
 	/// </returns>
-	int checkClick();
+	bool checkClick();
 
 	/// <summary>
 	/// アイテムの描画
@@ -136,11 +136,32 @@ public:
 	static void setItemNum(int32 itemNum);
 
 	/// <summary>
+	/// アイテム位置状態用列挙体
+	/// </summary>
+	enum posState {
+
+		/// <summary>
+		/// 通常の状態
+		/// </summary>
+		ok,
+
+		/// <summary>
+		/// 左側にはみでている
+		/// </summary>
+		overLeft,
+
+		/// <summary>
+		/// 右側にはみでている
+		/// </summary>
+		overRight
+	};
+
+	/// <summary>
 	/// アイテム位置修正(画面外判定)
 	/// </summary>
 	/// <returns>
-	/// はみ出ていなければ 0 、左側にはみ出たとき 1 、右側にはみでたとき 2 を返す
+	/// はみ出ていなければ ok 、左側にはみ出たとき overLeft 、右側にはみでたとき overRight を返す
 	/// </returns>
-	static int checkPos();
+	static posState checkPos();
 
 };
