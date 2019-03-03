@@ -38,10 +38,6 @@ void Select::updateLauncher() {
 		changeScene(L"Demo");
 	}
 
-	// アイテムの移動
-	const int32 wheelY = Mouse::Wheel();
-	SelectItem::moveItemPos(wheelY);
-
 	// 各アイテムの状態更新
 	for (auto& item : m_items) {
 		if (item.update(m_data->selectedID)) {
@@ -49,12 +45,18 @@ void Select::updateLauncher() {
 		}
 	}
 
-	//アイテム移動ボタン
-	if (m_leftButton.update() && SelectItem::checkPos() != SelectItem::overLeft) {
-		m_moveFlag -= m_items[0].getItemWidth() * 3;
-	}
-	if (m_rightButton.update() && SelectItem::checkPos() != SelectItem::overRight) {
-		m_moveFlag += m_items[0].getItemWidth() * 3;
+	// アイテムの移動(アイテム数が３以上のとき)
+	if (m_items.size() >= 3) {
+		const int32 wheelY = Mouse::Wheel();
+		SelectItem::moveItemPos(wheelY);
+
+		//アイテム移動ボタン
+		if (m_leftButton.update() && SelectItem::checkPos() != SelectItem::overLeft) {
+			m_moveFlag -= m_items[0].getItemWidth() * 3;
+		}
+		if (m_rightButton.update() && SelectItem::checkPos() != SelectItem::overRight) {
+			m_moveFlag += m_items[0].getItemWidth() * 3;
+		}
 	}
 
 	if (m_moveFlag != 0) {
@@ -112,11 +114,13 @@ void Select::draw() const {
 
 	m_detailButton.draw();
 	m_demoButton.draw();
-	if (SelectItem::checkPos() != SelectItem::overLeft) {
-		m_leftButton.draw();
-	}
-	if (SelectItem::checkPos() != SelectItem::overRight) {
-		m_rightButton.draw();
+	if (m_items.size() >= 3) {
+		if (SelectItem::checkPos() != SelectItem::overLeft) {
+			m_leftButton.draw();
+		}
+		if (SelectItem::checkPos() != SelectItem::overRight) {
+			m_rightButton.draw();
+		}
 	}
 
 }
