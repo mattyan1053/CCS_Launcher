@@ -30,6 +30,7 @@ void DemoScene::update() {
 			System::Exit();
 		}
 		Window::SetPos(windowPos);
+		Cursor::SetStyle(CursorStyle::Default);
 		m_data->changeBaseScene(L"Select");
 	}
 
