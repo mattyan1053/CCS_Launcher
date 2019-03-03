@@ -262,3 +262,11 @@ __pycache__/
 
 # Game files
 */Game/*
+
+[Ee]ngine/
+
+[Ee]xample/
+
+[Ss]creenshot/
+
+*.html
