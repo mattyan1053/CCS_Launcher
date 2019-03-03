@@ -66,7 +66,7 @@ void DemoScene::draw() const {
 
 	{
 		const Transformer2D transformer(mat, true);
-		Tag(m_tagPos, m_tagSize, m_data->apps[m_data->playingID].name, Palette::Aliceblue).draw();
+		Tag(m_tagPos, m_tagSize, m_data->apps[m_id].name, Palette::Aliceblue).draw();
 	}
 
 }
