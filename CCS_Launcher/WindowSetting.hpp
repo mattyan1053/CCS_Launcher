@@ -10,3 +10,5 @@ extern Size windowSize;
 /// ウィンドウの位置
 /// </summary>
 extern Point windowPos;
+
+void ErrorDialog(String errMsg);
