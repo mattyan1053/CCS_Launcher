@@ -32,4 +32,4 @@ mygame.exe
 抹茶(Twitter@mattyan1053)  
 
 ### 使用したライブラリ等
-Siv3D(https://play-siv3d.hateblo.jp/)  
+Siv3D(August2016v2)(https://play-siv3d.hateblo.jp/)  
