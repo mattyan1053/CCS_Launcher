@@ -58,12 +58,15 @@ void Detail::draw() const{
 	{
 		const Transformer2D transformer(mat, true);
 		const Rect screenshotFrame(screenshotPos, screenshotSize);
+		const auto ty = [=](KineticTypography& k) {
+			k.pos.x += k.index * 4;
+		};
 		// タイトルの文字数が大きい場合は小さいフォントを使う
 		if (FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).region().w < screenshotSizeX + 50) {
-			FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).draw(marginLeft, marginTop);
+			FontAsset(L"title2")(m_data->apps[m_data->selectedID].name).drawKinetic(marginLeft, marginTop, ty);
 		}
 		else {
-			FontAsset(L"title3")(MakeTailCutString(m_data->apps[m_data->selectedID].name, screenshotSizeX + 50, L"title3")).draw(marginLeft, marginTop);
+			FontAsset(L"title3")(MakeTailCutString(m_data->apps[m_data->selectedID].name, screenshotSizeX + 50, L"title3")).drawKinetic(marginLeft, marginTop, ty);
 		}
 		screenshotFrame.drawShadow({ 6, 6 }, 3, 5);
 		if (m_data->apps[m_data->selectedID].isMovieExist) {
