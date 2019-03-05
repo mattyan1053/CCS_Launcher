@@ -261,7 +261,7 @@ __pycache__/
 *.pyc
 
 # Game files
-*/Game/*
+*/[Gg]ame/*
 
 [Ee]ngine/
 
@@ -269,4 +269,4 @@ __pycache__/
 
 [Ss]creenshot/
 
-CCS_Launcher/CCS_Launcher_log.html
+*.html
