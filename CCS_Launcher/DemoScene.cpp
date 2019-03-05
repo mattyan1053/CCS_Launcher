@@ -37,7 +37,7 @@ void DemoScene::update() {
 		}
 
 		Window::Resize(windowSize);
-		Window::SetPos(windowPos);
+		Window::Centering();
 		Window::SetStyle(WindowStyle::Fixed);
 		Graphics::SetBackground(Palette::Skyblue);
 
