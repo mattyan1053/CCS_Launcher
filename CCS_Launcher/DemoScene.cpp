@@ -26,11 +26,13 @@ void DemoScene::update() {
 		if (m_isVideo) {
 			m_data->apps[m_id].appData.demo.stop();
 		}
-		if (!Window::SetFullscreen(false, windowSize)) {
-			System::Exit();
-		}
+
+		Window::Resize(windowSize);
 		Window::SetPos(windowPos);
+		Window::SetStyle(WindowStyle::Fixed);
+
 		Cursor::SetStyle(CursorStyle::Default);
+
 		m_data->changeBaseScene(L"Select");
 	}
 

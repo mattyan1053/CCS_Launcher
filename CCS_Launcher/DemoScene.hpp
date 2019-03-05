@@ -34,7 +34,7 @@ private:
 	/// <summary>
 	/// アプリケーション名タグ位置
 	/// </summary>
-	const Point m_tagPos = { 920, -20 };
+	Point m_tagPos = { 920, -20 };
 
 	/// <summary>
 	/// アプリケーション名タグサイズ

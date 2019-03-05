@@ -11,4 +11,9 @@ extern Size windowSize;
 /// </summary>
 extern Point windowPos;
 
+/// <summary>
+/// モニターサイズ
+/// </summary>
+extern Size monitorSize;
+
 void ErrorDialog(String errMsg);
