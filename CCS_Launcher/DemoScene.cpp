@@ -9,6 +9,8 @@ void DemoScene::init() {
 	
 	m_isVideo = m_data->apps[m_id].isMovieExist;
 
+	m_tagPos.x = Window::Size().x -  (m_tagSize.x *  double(monitorSize.x) / double(windowSize.x) * Cos(20_deg)) + 20;
+
 	// 動画なら再生開始、スクリーンショットなら時間計測開始
 	if (m_isVideo) {
 		m_data->apps[m_id].appData.demo.play();
@@ -65,7 +67,7 @@ void DemoScene::draw() const {
 		m_data->apps[m_id].appData.screenshot.resize(Window::Size()).draw();
 	}
 
-	Mat3x2 mat(Mat3x2::Rotate(Radians(20), m_tagPos));
+	Mat3x2 mat(Mat3x2::Scale(double(monitorSize.x) / double(windowSize.x), m_tagPos).rotate(Radians(20), m_tagPos));
 
 	{
 		const Transformer2D transformer(mat, true);
