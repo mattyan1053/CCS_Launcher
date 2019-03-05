@@ -9,7 +9,8 @@ void DemoScene::init() {
 	
 	m_isVideo = m_data->apps[m_id].isMovieExist;
 
-	m_tagPos.x = Window::Size().x -  (m_tagSize.x *  double(monitorSize.x) / double(windowSize.x) * Cos(20_deg)) + 20;
+	// 付箋位置計算
+	m_tagPos.x = int32(Window::Size().x -  (m_tagSize.x *  double(monitorSize.x) / double(windowSize.x) * Cos(20_deg)) + 20);
 
 	// 動画なら再生開始、スクリーンショットなら時間計測開始
 	if (m_isVideo) {
@@ -67,6 +68,7 @@ void DemoScene::draw() const {
 		m_data->apps[m_id].appData.screenshot.resize(Window::Size()).draw();
 	}
 
+	// 付箋の拡大と回転
 	Mat3x2 mat(Mat3x2::Scale(double(monitorSize.x) / double(windowSize.x), m_tagPos).rotate(Radians(20), m_tagPos));
 
 	{
