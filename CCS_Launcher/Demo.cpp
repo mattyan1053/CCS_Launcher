@@ -7,6 +7,7 @@
 void Demo::init() {
 
 	// ウィンドウ設定変更
+	Graphics::SetBackground(Palette::Black);
 	Window::SetStyle(WindowStyle::NonFrame);
 	Window::Resize(monitorSize);
 	Window::SetPos(0, 0);

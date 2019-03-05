@@ -13,12 +13,18 @@ void DemoScene::init() {
 	m_tagPos.x = int32(Window::Size().x -  (m_tagSize.x *  double(monitorSize.x) / double(windowSize.x) * Cos(20_deg)) + 20);
 
 	// 動画なら再生開始、スクリーンショットなら時間計測開始
+	// 動画、スクリーンショットのサイズも取得しておく
 	if (m_isVideo) {
 		m_data->apps[m_id].appData.demo.play();
+		m_textureSize = m_data->apps[m_id].appData.demo.getSize();
 	}
 	else {
 		m_stopwatch.start();
+		m_textureSize = m_data->apps[m_id].appData.screenshot.size;
 	}
+
+	// 拡大率を計算
+	m_scaleUpRate = Min(double(Window::Size().y) / double(m_textureSize.y), double(Window::Size().x) / double(m_textureSize.x));
 
 }
 
@@ -33,6 +39,7 @@ void DemoScene::update() {
 		Window::Resize(windowSize);
 		Window::SetPos(windowPos);
 		Window::SetStyle(WindowStyle::Fixed);
+		Graphics::SetBackground(Palette::Skyblue);
 
 		Cursor::SetStyle(CursorStyle::Default);
 
@@ -62,10 +69,10 @@ void DemoScene::update() {
 void DemoScene::draw() const {
 
 	if (m_isVideo) {
-		m_data->apps[m_id].appData.demo.getFrameTexture().resize(Window::Size()).draw();
+		m_data->apps[m_id].appData.demo.getFrameTexture().resize(m_textureSize * m_scaleUpRate).draw(Window::Center() - m_textureSize * m_scaleUpRate / 2);
 	}
 	else {
-		m_data->apps[m_id].appData.screenshot.resize(Window::Size()).draw();
+		m_data->apps[m_id].appData.screenshot.resize(m_textureSize * m_scaleUpRate).draw(Window::Center() - m_textureSize * m_scaleUpRate / 2);
 	}
 
 	// 付箋の拡大と回転
