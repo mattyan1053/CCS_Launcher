@@ -3,9 +3,12 @@
 # include "Launcher.hpp"
 # include "ResourceLoader.hpp"
 # include "WindowSetting.hpp"
+# include <Windows.h>
 
 Size windowSize = { 1280,720 };
 Point windowPos = { 100, 100 };
+
+Size monitorSize;
 
 void ErrorDialog(String errMsg) {
 
@@ -30,6 +33,8 @@ void Main()
 	Window::SetTitle(L"CCS Works");
 	Window::Resize(windowSize);
 	Window::SetPos(windowPos);
+
+	monitorSize = { ::GetSystemMetrics(SM_CXSCREEN), ::GetSystemMetrics(SM_CYSCREEN) };
 
 	Graphics::SetBackground(Palette::Skyblue);
 

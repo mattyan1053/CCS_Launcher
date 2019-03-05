@@ -7,9 +7,9 @@
 void Demo::init() {
 
 	// ウィンドウ設定変更
-	if (!Window::SetFullscreen(true, windowSize)) {
-		System::Exit();
-	}
+	Window::SetStyle(WindowStyle::NonFrame);
+	Window::Resize(monitorSize);
+	Window::SetPos(0, 0);
 
 	// シーン遷移マネージャーの設定
 	m_manager.get()->changeBaseScene = [&](String state) {changeScene(state); };
