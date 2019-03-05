@@ -26,13 +26,13 @@ public:
 	/// <param name="_pos">
 	/// ボタンの中心座標
 	/// </param>
-	/// <param name="r">
+	/// <param name="_r">
 	/// ボタン半径
 	/// </param>
 	/// <param name="_text">
 	/// ボタンのテキスト
 	/// </param>
-	void set(Point _pos, int32 r, String _text);
+	void set(Point _pos, int32 _r, String _text);
 
 	/// <summary>
 	/// ボタンのクリック判定
