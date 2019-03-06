@@ -9,7 +9,7 @@ String MakeTailCutString(String str, int32 w, String fontAsset) {
 	const bool overflow = (n < str.length);
 
 	if (overflow) {
-		retStr = retStr.substr(0, n - 2);
+		retStr = retStr.substr(0, n - 3);
 		retStr += L"...";
 	}
 
