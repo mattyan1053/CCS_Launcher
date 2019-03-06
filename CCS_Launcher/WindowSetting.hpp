@@ -7,11 +7,6 @@
 extern Size windowSize;
 
 /// <summary>
-/// ウィンドウの位置
-/// </summary>
-extern Point windowPos;
-
-/// <summary>
 /// モニターサイズ
 /// </summary>
 extern Size monitorSize;

@@ -6,7 +6,6 @@
 # include <Windows.h>
 
 Size windowSize = { 1280,720 };
-Point windowPos = { 100, 100 };
 
 Size monitorSize;
 
@@ -32,7 +31,7 @@ void Main()
 	// ウィンドウの設定
 	Window::SetTitle(L"CCS Works");
 	Window::Resize(windowSize);
-	Window::SetPos(windowPos);
+	Window::Centering();
 
 	monitorSize = { ::GetSystemMetrics(SM_CXSCREEN), ::GetSystemMetrics(SM_CYSCREEN) };
 

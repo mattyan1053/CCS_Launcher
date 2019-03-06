@@ -41,6 +41,16 @@ private:
 	/// </summary>
 	const Size m_tagSize = { 400, 80 };
 
+	/// <summary>
+	/// 画面に映すテクスチャのサイズ
+	/// </summary>
+	Size m_textureSize;
+
+	/// <summary>
+	/// 画面に映すテクスチャの拡大率
+	/// </summary>
+	double m_scaleUpRate;
+
 public:
 
 	/// <summary>
