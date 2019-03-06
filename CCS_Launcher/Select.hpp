@@ -60,13 +60,13 @@ public:
 	/// </summary>
 	const Point summaryPos = { 50, 490 };
 	const Size summarySize = { 850, 210 };
-	const int32 summaryMarginTop = 20;
+	const int32 summaryMarginTop = 10;
 
 	/// <summary>
 	/// ボタンパラメータ
 	/// </summary>
 	const Size buttonSize = { 200, 60 };
-	const Point buttonPos = { summaryPos + summarySize - buttonSize - Point(20, 20) };
+	const Point buttonPos = { summaryPos + summarySize - buttonSize - Point(20, 10) };
 	const Point demoButtonPos = { Window::Size().x - buttonSize.x - 50, 30 };
 	const int32 moveButtonRadius = 40;
 	const Point leftButtonPos = { 20 + moveButtonRadius, 280 };
