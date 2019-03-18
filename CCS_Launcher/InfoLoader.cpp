@@ -20,7 +20,7 @@ AppData InfoLoader::loadAppData(const FilePath& path) {
 		}
 
 		// 実行ファイル名、ジャンル、操作方法のロード
-		if (file.includes(L"info") || file.includes(L"Info")) {
+		if ((file.includes(L"info") || file.includes(L"Info")) && file.includes(L".txt")) {
 			TextReader reader(file);
 			infoFlag = true;
 			reader.readLine(appData.executePath);
