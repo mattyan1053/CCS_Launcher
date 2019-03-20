@@ -95,4 +95,21 @@ public:
 	/// </summary>
 	void draw() const override;
 
+	/// <summary>
+	/// EXE以外のアプリケーションは、ShellExecuteする
+	/// </summary>
+	/// <param name="file">
+	/// 起動するファイル名
+	/// </param>
+	/// <param name="directory">
+	/// 起動するファイルの存在するディレクトリパス
+	/// </param>
+	/// <returns>
+	/// 起動したプロセスのハンドル
+	/// </returns>
+	/// <remarks>
+	/// ここではハンドルを CloseHandleしていないので、使い終わったところでCloseHandleをする必要がある（メモリーリークの危険性）
+	/// </remarks>
+	HANDLE openOtherApps(const FilePath& file, const FilePath& directory);
+
 };

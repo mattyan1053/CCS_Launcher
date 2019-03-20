@@ -1,6 +1,10 @@
 # pragma once
 # include <Siv3D.hpp>
+# include <Windows.h>
 # include "Detail.hpp"
+
+# define NOMINMAX
+# undef CreateProcess
 
 void Detail::init() {
 
@@ -26,8 +30,13 @@ void Detail::updateLauncher() {
 
 	// 動画更新
 	if (m_data->apps[m_data->selectedID].isMovieExist) {
-		if (!m_data->apps[m_data->selectedID].appData.demo.isPlaying()) m_data->apps[m_data->selectedID].appData.demo.play();
+		if (Window::Focused() && !m_data->apps[m_data->selectedID].appData.demo.isPlaying()) m_data->apps[m_data->selectedID].appData.demo.play();
 		m_data->apps[m_data->selectedID].appData.demo.update();
+	}
+	
+	// ランチャーがアクティブでないときポーズ
+	if (m_data->apps[m_data->selectedID].isMovieExist && m_data->apps[m_data->selectedID].appData.demo.isPlaying() && Window::Focused() == false) {
+		m_data->apps[m_data->selectedID].appData.demo.pause();
 	}
 
 	// 戻る
@@ -43,7 +52,16 @@ void Detail::updateLauncher() {
 		if (m_data->apps[m_data->selectedID].isMovieExist) {
 			m_data->apps[m_data->selectedID].appData.demo.pause();
 		}
-		m_data->process = System::CreateProcess(m_data->apps[m_data->selectedID].appData.executePath);
+		
+		// EXE形式以外のファイルはShellExecuteExを使用して開いている。
+		// EXE形式のファイルもShellExecuteで問題ないと考えられるが、動作の安定に不安があるため一応残してある
+		if (FileSystem::Extension(m_data->apps[m_data->selectedID].appData.executePath) == L"exe") {
+			m_data->process = System::CreateProcess(m_data->apps[m_data->selectedID].appData.executePath);
+		}
+		else {
+			m_data->handle = openOtherApps(FileSystem::FileName(m_data->apps[m_data->selectedID].appData.executePath), FileSystem::ParentPath(m_data->apps[m_data->selectedID].appData.executePath));
+		}
+
 	}
 
 	frame.update(m_data->apps[m_data->selectedID].appData.readme.size);
@@ -93,5 +111,27 @@ void Detail::draw() const{
 	texture(frameData.contentsOffset, Min(frameData.contentsArea.w, texture.width), Min(frameData.contentsArea.h, texture.height)).draw(frameData.contentsArea.pos);
 	frame.draw();
 	frameData.region.drawFrame(0, 1.5, Palette::Gray);
+
+}
+
+# define NOMINMAX
+
+HANDLE Detail::openOtherApps(const FilePath & file, const FilePath & directory) {
+
+	SHELLEXECUTEINFO shellExeInfo;
+	memset(&shellExeInfo, 0, sizeof(shellExeInfo));
+	shellExeInfo.cbSize = sizeof(shellExeInfo);
+	shellExeInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+	shellExeInfo.lpVerb = L"open";
+	shellExeInfo.lpFile = file.c_str();
+	shellExeInfo.lpParameters = nullptr;
+	shellExeInfo.lpDirectory = directory.c_str();
+	shellExeInfo.nShow = SW_SHOWNORMAL;
+
+	ShellExecuteExW(&shellExeInfo);
+
+	HANDLE handle = shellExeInfo.hProcess;
+
+	return handle;
 
 }

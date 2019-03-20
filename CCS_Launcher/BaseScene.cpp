@@ -1,6 +1,9 @@
 # pragma once
 # include <Siv3D.hpp>
+# include <Windows.h>
 # include "Scene.hpp"
+
+# define NOMINMAX
 
 void BaseScene::update() {
 
@@ -13,6 +16,16 @@ void BaseScene::update() {
 		else {
 			Window::Restore();
 			m_data->process = none;
+		}
+	}
+	else if (m_data->handle) {
+		if (m_data->handle == 0 || WaitForSingleObject(m_data->handle, 0) == WAIT_OBJECT_0) {
+			CloseHandle(m_data->handle); // 使用のおわったハンドルはクローズ
+			m_data->handle = 0;
+			Window::Restore();
+		}
+		else {
+			Window::Minimize();
 		}
 	}
 	else {

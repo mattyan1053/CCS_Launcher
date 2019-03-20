@@ -4,6 +4,8 @@
 # include "Defines.hpp"
 # include "Fade.hpp"
 
+typedef void* HANDLE; // Windows.hのインクルードによる干渉を回避
+
 /// <summary>
 /// シーン遷移で共有するデータ
 /// </summary>
@@ -23,6 +25,11 @@ struct ShereData {
 	/// プロセスの実行フラグ
 	/// </summary>
 	Optional<ProcessInfo> process;
+
+	/// <summary>
+	/// CreateProcessで起動しない場合にprocessのかわりにこちらを用いて管理する
+	/// </summary>
+	HANDLE handle;
 };
 
 using SceneChanger = SceneManager<String, ShereData>;
